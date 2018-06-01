@@ -35,13 +35,11 @@ Configure the root of your repository with the following files and directories. 
 * **\_\_test\_\_/** - contains unit tests
 
 ## Feature Tasks  
-For this assignment you will be building a HTTP server. 
-#### Body Parser Module
-#### URL Parser Module
-#### Server Module 
+For this assignment you will be building a HTTP server with a  main *server module* and separate module/s to parse a request's url and body
+
 The server module is responsible for creating an http server defining all route behavior and exporting an interface for starting and stoping the server. It should export an object with `start` and `stop` methods. The start and stop methods should each return a promise that resolves on success and rejects on error. 
 ###### GET /
-When a client makes a GET request to / the server should send baack html with a project description and a anchor to /cowsay.
+When a client makes a GET request to / the server should send back html with a project description and a anchor to /cowsay.
 ``` html
 <!DOCTYPE html>
 <html>
