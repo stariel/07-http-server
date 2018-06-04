@@ -1,0 +1,21 @@
+{
+  "name": "07-http-server",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) Lab 07: Vanilla HTTP Server ======",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "test": "jest --coverage --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stariel/07-http-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stariel/07-http-server/issues"
+  },
+  "homepage": "https://github.com/stariel/07-http-server#readme"
+}
