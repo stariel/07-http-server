@@ -8,5 +8,9 @@ module.exports = (req) => {
     if(!(req || req.url)) {
       reject('Request invalid, can not parse.');
     }
+
+    req.url = url.parse(req.url);
+
+    req.url.query = queryString.parse(req.url.query);
   } );
 };
