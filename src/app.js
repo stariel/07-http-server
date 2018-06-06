@@ -104,8 +104,9 @@ const requestHandler = (req, res) => {
 
     })
     .catch(err => {
-      res.writeHead(500);
-      res.write(err);
+      res.writeHead(400);
+      res.write(JSON.stringify({error: 'invalid request: body required'}));
+      console.error(err);
       res.end();
     });
 
