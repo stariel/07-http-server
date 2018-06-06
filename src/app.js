@@ -3,7 +3,8 @@
 const http = require('http');
 
 const cowsay = require('cowsay');
-const parser = require('.lib/parser.js');
+const parser = require(`${__dirname}/lib/parser.js`);
+const fs = require('fs');
 
 const requestHandler = (req, res) => {
 
@@ -15,6 +16,29 @@ const requestHandler = (req, res) => {
         res.statusCode = 200;
         res.statusMessage = 'OK';
 
+        let cowsay = `
+        <!DOCTYPE html>
+<html>
+  <head>
+    <title> cowsay </title>  
+  </head>
+  <body>
+   <header>
+     <nav>
+       <ul> 
+         <li><a href="/cowsay">cowsay</a></li>
+       </ul>
+     </nav>
+   </header>
+   <main>
+     <!-- project description -->
+   </main>
+  </body>
+</html>
+        `;
+
+        res.write(cowsay);
+
         res.end();
         return;
       }
@@ -24,13 +48,21 @@ const requestHandler = (req, res) => {
         res.statusCode = 200;
         res.statusMessage = 'OK';
 
-        let message = req.url.query.text;
+        let cowsaySpeak = `
+        <!DOCTYPE html>
+<html>
+  <head>
+    <title> cowsay </title>  
+  </head>
+  <body>
+    <h1> cowsay </h1>
+    <pre>
+      ${cowsay.say({text: req.url.query.text})}
+    </pre>
+  </body>
+</html>`;
 
-        res.write(cowsay.say({
-          text : message,
-          e : 'oo',
-          T : 'U',
-        }));
+        res.write(cowsaySpeak);
 
         res.end();
         return;
