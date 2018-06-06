@@ -48,6 +48,8 @@ const requestHandler = (req, res) => {
         res.statusCode = 200;
         res.statusMessage = 'OK';
 
+        let queryText = req.url.query.text || 'I need something good to say!';
+
         let cowsaySpeak = `
         <!DOCTYPE html>
 <html>
@@ -57,10 +59,12 @@ const requestHandler = (req, res) => {
   <body>
     <h1> cowsay </h1>
     <pre>
-      ${cowsay.say({text: req.url.query.text})}
+      ${cowsay.say({text: queryText})}
     </pre>
   </body>
 </html>`;
+
+
 
         res.write(cowsaySpeak);
 
