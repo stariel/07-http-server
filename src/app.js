@@ -4,7 +4,7 @@ const http = require('http');
 
 const cowsay = require('cowsay');
 const parser = require(`${__dirname}/lib/parser.js`);
-const fs = require('fs');
+// const fs = require('fs');
 
 const requestHandler = (req, res) => {
 
@@ -76,7 +76,20 @@ const requestHandler = (req, res) => {
         res.setHeader('Content-Type', 'text/json');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        res.write( JSON.stringify(req.body) );
+
+        if(req.body.text) {
+          let cowMessage = cowsay.say({text: req.body.text});
+
+          res.write(JSON.stringify({content : cowMessage}));
+        }
+
+        else {
+          res.statusCode = 400;
+          res.write(JSON.stringify({error: 'invalid request: text query required'}));
+        }
+        
+
+
         res.end();
         return;
       }
