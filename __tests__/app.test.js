@@ -16,7 +16,7 @@ describe('Simple Web Server', () => {
   it('handles an invalid get request with a 404', () => {
 
     return superagent.get('http://localhost:3000/cat')
-      .then(response => true)
+      .then(response => console.log(response))
       .catch(response => expect(response.status).toEqual(404));
 
   });

@@ -23,6 +23,7 @@
     "cowsay": "^1.3.0",
     "dotenv": "^6.0.0",
     "fs": "0.0.1-security",
+    "jest": "^22.4.4",
     "superagent": "^3.8.3"
   }
 }
