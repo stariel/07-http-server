@@ -4,7 +4,6 @@ const http = require('http');
 
 const cowsay = require('cowsay');
 const parser = require(`${__dirname}/lib/parser.js`);
-// const fs = require('fs');
 
 const requestHandler = (req, res) => {
 
@@ -72,7 +71,7 @@ const requestHandler = (req, res) => {
         return;
       }
 
-      else if ( req.method === 'POST' && req.url.pathname === '/api/cowsay' ) {
+      else if ( req.method === 'POST' && req.url.pathname === '/cowsay' ) {
         res.setHeader('Content-Type', 'text/json');
         res.statusCode = 200;
         res.statusMessage = 'OK';
